@@ -4,7 +4,7 @@ import UserView from "./UserCrudView";
 
 const API_URL = import.meta.env.VITE_APP_API_URL; 
 
-const emptyUser: IUser = {
+const emptyUser: Omit<IUser, "id"> = {
   nome: "",
   endereco: "",
   cep: "",
@@ -14,11 +14,13 @@ const emptyUser: IUser = {
 };
 
 const UserController: React.FC = () => {
-  const [form, setForm] = useState<IUser>(emptyUser);
+  const [form, setForm] = useState(emptyUser);
   const [users, setUsers] = useState<IUser[]>([]);
-  const [editing, setEditing] = useState<boolean>(false);
+  const [editing, setEditing] = useState(false);
   const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(""); 
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     const { name, value } = e.target;
@@ -45,7 +47,8 @@ const UserController: React.FC = () => {
   async function handleSubmit() {
     try {
       setLoading(true);
-
+      setError("");
+      const start = Date.now();
 
       const response = await fetch(`${API_URL}/users`, {
         method: 'POST',
@@ -59,11 +62,17 @@ const UserController: React.FC = () => {
       }
 
       const newUser = await response.json();
+      const elapsed = Date.now() - start;
+      const waitTime = elapsed < 3000 ? 3000 - elapsed : 0;
+      await new Promise(res => setTimeout(res, waitTime));
+
       setUsers(prev => [...prev, newUser]);
       handleClear();
-    } catch (error: any) {
-      console.error('Erro ao salvar usuário:', error);
-      alert(error.message);
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (err: any) {
+      setError(err.message || "Erro inesperado");
+      setTimeout(() => setError(""), 5000);
     } finally {
       setLoading(false);
     }
@@ -84,11 +93,13 @@ const UserController: React.FC = () => {
       errors={errors}
       touched={touched}
       editing={editing}
+      loading={loading}
+      success={success}
+      error={error}
       handleChange={handleChange}
       handleBlur={handleBlur}
       handleSubmit={validateBeforeSubmit}
       handleClear={handleClear}
-      loading={loading} 
     />
   );
 };

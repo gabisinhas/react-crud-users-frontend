@@ -11,9 +11,13 @@ import {
   Box,
   FormHelperText,
   CircularProgress,
+  Alert,
+  Collapse,
 } from "@mui/material";
 import { IUser } from "./User";
 import { IMaskInput } from "react-imask";
+import CheckIcon from "@mui/icons-material/Check";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import "./UserView.css";
 
 const MaskedInputCEP = forwardRef<HTMLInputElement, any>(({ onChange, ...props }, ref) => (
@@ -35,6 +39,8 @@ interface UserViewProps {
   touched: { [key: string]: boolean };
   editing: boolean;
   loading: boolean;
+  success: boolean;
+  error: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   handleBlur: (e: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -47,6 +53,8 @@ const UserView: React.FC<UserViewProps> = ({
   touched,
   editing,
   loading,
+  success,
+  error,
   handleChange,
   handleBlur,
   handleSubmit,
@@ -56,7 +64,25 @@ const UserView: React.FC<UserViewProps> = ({
     <div className="user-page">
       <Box sx={{ p: 3 }}>
         <h1 className="landing-title">Cadastrar Novo Usuário</h1>
-        <Paper className="user-form-container" elevation={3}>
+        <Paper className="user-form-container" elevation={3} sx={{ p: 3 }}>
+          <Collapse in={success}>
+            <Alert
+              icon={<CheckIcon fontSize="inherit" />}
+              severity="success"
+              sx={{ mb: 2 }}
+            >
+              Usuário criado com sucesso!
+            </Alert>
+          </Collapse>
+          <Collapse in={!!error}>
+            <Alert
+              icon={<ErrorOutlineIcon fontSize="inherit" />}
+              severity="error"
+              sx={{ mb: 2 }}
+            >
+              {error}
+            </Alert>
+          </Collapse>
           <form onSubmit={handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
