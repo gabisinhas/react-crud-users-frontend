@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: #f8f9fa;
+}
+/* ---------- GLOBAL RESET (ajuda com consistência) ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- TÍTULO ---------- */
+.app-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+/* ---------- ANIMAÇÃO DO GRADIENTE ---------- */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fundo animado */
+.app-background {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #1e1e2f 0%, #2a2a4a 50%, #1b1b2b 100%);
+  background-size: 100% 100%;
+  animation: gradientMove 12s ease infinite;
+
+  /* Mantém fundo fixo, conteúdo em cima */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Conteúdo principal */
+.app-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Card central */
+.app-container {
+  margin: 40px auto;
+  padding: 32px;
+  max-width: 900px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  margin-top: auto;
+  background: #fcfcffdc;
+  padding: 10px;
+  text-align: center;
+  color: #000;
+}
+
+.header{
+  width: 100%;
+  margin-top: auto;
+  background: #fcfcffdc;
+  padding: 3px;
+  text-align:right;
+  color: #000;
+}
+
+.landing-title{
+  font-family: "Open Sans", sans-serif;
+  color: #f8f9fa;
+  padding-bottom: 3px;
+  text-align:center;
+}
