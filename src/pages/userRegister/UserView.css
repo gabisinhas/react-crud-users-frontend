@@ -1,7 +1,9 @@
-/* ===== CONTAINER PRINCIPAL ===== */
-.user-form-container {
-  padding: 32px;
+.user-page {
   font-family: "Open Sans", sans-serif;
+}
+
+.user-page .user-form-container {
+  padding: 32px;
   border-radius: 16px;
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -9,53 +11,46 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-}
-
-.user-form-container:hover {
+.user-page .user-form-container:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
-/* ===== TEXTFIELDS ===== */
-.MuiTextField-root .MuiOutlinedInput-root {
+.user-page .MuiTextField-root .MuiOutlinedInput-root {
   border-radius: 10px;
   background: #f9fafb;
   transition: border-color 0.2s ease;
 }
 
-.MuiTextField-root .MuiOutlinedInput-notchedOutline {
+.user-page .MuiTextField-root .MuiOutlinedInput-notchedOutline {
   border-color: #d1d5db;
 }
 
-.MuiTextField-root:hover .MuiOutlinedInput-notchedOutline {
+.user-page .MuiTextField-root:hover .MuiOutlinedInput-notchedOutline {
   border-color: #2563eb;
 }
 
-.Mui-focused .MuiOutlinedInput-notchedOutline {
+.user-page .Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: #2563eb !important;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
 }
 
-/* Label acessível e com bom contraste */
-.MuiInputLabel-root {
+/* Label */
+.user-page .MuiInputLabel-root {
   color: #374151 !important;
   font-weight: 500;
 }
 
-/* ===== SELECT ===== */
-.MuiSelect-outlined {
+.user-page .MuiSelect-outlined {
   background: #f9fafb;
   border-radius: 10px;
 }
 
-/* ===== BOTÕES ===== */
-.button-container {
+.user-page .button-container {
   margin-top: 24px;
 }
 
-.button-container button {
+.user-page .button-container button {
   border-radius: 10px !important;
   font-size: 1rem;
   font-weight: 600;
@@ -63,40 +58,36 @@ body {
   text-transform: none;
 }
 
-/* Botão principal — azul acessível */
-.MuiButton-contained {
+.user-page .MuiButton-contained {
   background-color: #2563eb !important;
   color: #ffffff !important;
   box-shadow: none;
 }
 
-.MuiButton-contained:hover {
+.user-page .MuiButton-contained:hover {
   background-color: #1d4ed8 !important;
 }
 
-/* Botão outlined */
-.MuiButton-outlined {
+.user-page .MuiButton-outlined {
   color: #374151 !important;
   border-color: #9ca3af !important;
 }
 
-.MuiButton-outlined:hover {
+.user-page .MuiButton-outlined:hover {
   background-color: #f3f4f6 !important;
   border-color: #6b7280 !important;
 }
 
-/* ===== AJUSTES DE TIPOGRAFIA ===== */
-.MuiFormHelperText-root {
+.user-page .MuiFormHelperText-root {
   font-size: 0.85rem;
 }
 
-/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 600px) {
-  .user-form-container {
+  .user-page .user-form-container {
     padding: 20px;
   }
 
-  .button-container button {
+  .user-page .button-container button {
     width: 100%;
     margin-top: 8px;
   }

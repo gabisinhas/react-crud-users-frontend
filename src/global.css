@@ -1,16 +1,15 @@
-body {
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
-  background: #f8f9fa;
-}
-/* ---------- GLOBAL RESET (ajuda com consistência) ---------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ---------- TÍTULO ---------- */
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: #f8f9fa;
+}
+
 .app-title {
   text-align: center;
   font-size: 2rem;
@@ -19,7 +18,13 @@ body {
   margin-bottom: 24px;
 }
 
-/* ---------- ANIMAÇÃO DO GRADIENTE ---------- */
+.landing-title {
+  font-family: "Open Sans", sans-serif;
+  color: #f8f9fa;
+  padding-bottom: 3px;
+  text-align: center;
+}
+
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -34,13 +39,12 @@ body {
   background-size: 100% 100%;
   animation: gradientMove 12s ease infinite;
 
-  /* Mantém fundo fixo, conteúdo em cima */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Conteúdo principal */
+/* Conteúdo central */
 .app-content {
   width: 100%;
   max-width: 1200px;
@@ -49,9 +53,9 @@ body {
   flex-grow: 1;
 }
 
-/* Card central */
+/* Card central do layout principal */
 .app-container {
-  margin: 40px auto;
+  margin: 40px auto 0;
   padding: 32px;
   max-width: 900px;
 
@@ -62,7 +66,14 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
-/* Footer */
+.header {
+  width: 100%;
+  background: #fcfcffdc;
+  padding: 3px;
+  text-align: right;
+  color: #000;
+}
+
 .footer {
   width: 100%;
   margin-top: auto;
@@ -70,20 +81,4 @@ body {
   padding: 10px;
   text-align: center;
   color: #000;
-}
-
-.header{
-  width: 100%;
-  margin-top: auto;
-  background: #fcfcffdc;
-  padding: 3px;
-  text-align:right;
-  color: #000;
-}
-
-.landing-title{
-  font-family: "Open Sans", sans-serif;
-  color: #f8f9fa;
-  padding-bottom: 3px;
-  text-align:center;
 }
