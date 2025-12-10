@@ -4,7 +4,7 @@ import UserView from "./UserCrudView";
 
 const API_URL = import.meta.env.VITE_APP_API_URL; 
 
-const emptyUser: Omit<IUser, "id"> = {
+const emptyUser: IUser  = {
   nome: "",
   endereco: "",
   cep: "",
